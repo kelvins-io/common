@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+package model_swagger;
+
+import "gitee.com/kelvins-io/common/proto/google/api/annotations.proto";
+
+service SwaggerModelService {
+    rpc GetSwaggerJson(GetSwaggerJsonRequest) returns (GetSwaggerJsonResponse) {
+        option (google.api.http) = {
+            get: "/v1/swagger/model/get"
+        };
+    }
+}
+
+message GetSwaggerJsonRequest {
+    int64 timestamp = 1;
+    string sign = 2;
+}
+
+message GetSwaggerJsonResponse {
+    string json = 1;
+}
