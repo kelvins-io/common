@@ -5,7 +5,7 @@ import (
 	"gitee.com/kelvins-io/common/conf"
 	"gitee.com/kelvins-io/common/file"
 	"gitee.com/kelvins-io/common/gtool/grpc_interceptor"
-	"gitee.com/kelvins-io/kelvins-service-config/configcenter"
+	"gitee.com/kelvins-io/service-config/configcenter"
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	"go.elastic.co/apm/module/apmgrpc"
 	"google.golang.org/grpc"
