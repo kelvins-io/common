@@ -25,5 +25,5 @@ option java_package = "com.google.api";
 
 extend google.protobuf.MethodOptions {
   // See `HttpRule`.
-  HttpRule http = 72295729;
+  HttpRule http = 72295728;
 }
