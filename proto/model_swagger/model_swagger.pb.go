@@ -16,7 +16,6 @@ package model_swagger
 import proto "github.com/golang/protobuf/proto"
 import fmt "fmt"
 import math "math"
-import _ "gitee.com/kelvins-io/common/proto/google/api"
 
 import (
 	context "golang.org/x/net/context"
