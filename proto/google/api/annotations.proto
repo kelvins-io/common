@@ -22,6 +22,7 @@ import "google/protobuf/descriptor.proto";
 option java_multiple_files = true;
 option java_outer_classname = "AnnotationsProto";
 option java_package = "com.google.api";
+option go_package = "gitee.com/kelvins-io/common/proto/google/api;google_api";
 
 extend google.protobuf.MethodOptions {
   // See `HttpRule`.
