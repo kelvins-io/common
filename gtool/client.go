@@ -3,10 +3,10 @@ package gtool
 import (
 	"context"
 	"gitee.com/kelvins-io/common/conf"
+	"gitee.com/kelvins-io/common/configcenter"
 	"gitee.com/kelvins-io/common/file"
 	"gitee.com/kelvins-io/common/gtool/grpc_interceptor"
-	"gitee.com/kelvins-io/service-config/configcenter"
-	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
+	grpcMiddleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	"go.elastic.co/apm/module/apmgrpc"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials"
@@ -81,13 +81,13 @@ func (c *Conn) GetAPMConn(ctx context.Context) (*grpc.ClientConn, error) {
 	var opts []grpc.DialOption
 	opts = append(opts, grpc.WithTransportCredentials(creds))
 	opts = append(opts, grpc.WithUnaryInterceptor(
-		grpc_middleware.ChainUnaryClient(
+		grpcMiddleware.ChainUnaryClient(
 			apmgrpc.NewUnaryClientInterceptor(),
 			grpc_interceptor.UnaryCtxHandleGRPC(),
 		),
 	))
 	opts = append(opts, grpc.WithStreamInterceptor(
-		grpc_middleware.ChainStreamClient(
+		grpcMiddleware.ChainStreamClient(
 			grpc_interceptor.StreamCtxHandleGRPC(),
 		),
 	))
