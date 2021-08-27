@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package model_swagger;
 
+option go_package = "google.golang.org/grpc";
+
 import "gitee.com/kelvins-io/common/proto/google/api/annotations.proto";
 
 service SwaggerModelService {

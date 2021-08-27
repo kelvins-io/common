@@ -9,7 +9,7 @@ import (
 // 创建日志对象
 func CreateLogger(logConf LoggerConf) (LoggerContextIface, error) {
 	if logConf.LogFilePath == "" {
-		return nil, errors.New("Log Path is empty")
+		return nil, errors.New("log path is empty")
 	}
 	trackLogger := newLoggerContext()
 	trackLogger.loggerConf = logConf

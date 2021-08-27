@@ -70,8 +70,6 @@ func NewConn(serviceName string) *Conn {
 	return conn
 }
 
-// Get ElasticStack gRPC APM Conn(v1)
-// if want to v2, u need to /track/blob/v2/util/client_conn/client_service.go#L58
 func (c *Conn) GetAPMConn(ctx context.Context) (*grpc.ClientConn, error) {
 	creds, err := credentials.NewClientTLSFromFile(c.CertFile, c.CertServerName)
 	if err != nil {
