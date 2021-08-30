@@ -56,6 +56,7 @@ func newMachineryQueue(broker string, defaultQueue string, resultBackend string,
 		ResultBackend:   resultBackend,
 		ResultsExpireIn: resultsExpireIn,
 		AMQP:            amqp,
+		NoUnixSignals: true,
 	}
 
 	server, err := machinery.NewServer(config2)
