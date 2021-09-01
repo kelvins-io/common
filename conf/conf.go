@@ -1,7 +1,7 @@
 package conf
 
 import (
-	"gitee.com/kelvins-io/service-config/configcenter"
+	"gitee.com/kelvins-io/common/configcenter"
 	"log"
 	"strings"
 )

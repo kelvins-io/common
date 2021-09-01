@@ -18,7 +18,7 @@ const (
 func GetMode() (env string, err error) {
 	env = strings.ToLower(os.Getenv(EnvName))
 	if env == "" {
-		err = errors.New("Can not find ENV '" + EnvName + "'")
+		err = errors.New("can not find env " + EnvName )
 	}
 
 	return env, err

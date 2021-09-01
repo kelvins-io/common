@@ -1,6 +1,7 @@
 package errcode
 
 import (
+	"google.golang.org/grpc/codes"
 	"net/http"
 	"testing"
 )
@@ -12,7 +13,7 @@ func TestToHttpStatusCode(t *testing.T) {
 		20000000: http.StatusOK,
 	}
 	for code, expectStatus := range m {
-		status := ToHttpStatusCode(code)
+		status := ToHttpStatusCode(codes.Code(code))
 		if status != expectStatus {
 			t.Errorf("code:%d expectStatus:%d status:%d", code, expectStatus, status)
 		}

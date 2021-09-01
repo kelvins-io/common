@@ -1,10 +1,8 @@
 package log
 
 import (
-	"context"
 	"errors"
 	"fmt"
-	"go.elastic.co/apm"
 	"strings"
 )
 
@@ -47,22 +45,22 @@ func InitGlobalConfig(rootPath string, level string, appName string) error {
 	return nil
 }
 
-func contextCall(l *LoggerContext, ctx context.Context) LoggerContextIface {
-	tx := apm.TransactionFromContext(ctx)
-	traceContext := tx.TraceContext()
-	traceId := traceContext.Trace.String()
-	transactionId := traceContext.Span.String()
-	spanId := ""
-	if span := apm.SpanFromContext(ctx); span != nil {
-		spanId = span.TraceContext().Span.String()
-	}
-
-	return l.WithCommonFields(Fields{
-		"trace.id":       traceId,
-		"transaction.id": transactionId,
-		"span.id":        spanId,
-	})
-}
+//func contextCall(l *LoggerContext, ctx context.Context) LoggerContextIface {
+//	tx := apm.TransactionFromContext(ctx)
+//	traceContext := tx.TraceContext()
+//	traceId := traceContext.Trace.String()
+//	transactionId := traceContext.Span.String()
+//	spanId := ""
+//	if span := apm.SpanFromContext(ctx); span != nil {
+//		spanId = span.TraceContext().Span.String()
+//	}
+//
+//	return l.WithCommonFields(Fields{
+//		"trace.id":       traceId,
+//		"transaction.id": transactionId,
+//		"span.id":        spanId,
+//	})
+//}
 
 func GetAccessLogger(loggerTag string) (*LoggerContext, error) {
 	return getLogger(LOGGER_ACCESS_TYPE, loggerTag, false)
@@ -102,7 +100,7 @@ func getLogger(loggerType string, loggerTag string, caller bool) (*LoggerContext
 		AppName:     globalAppName,
 		Level:       globalLevel,
 		Caller:      caller,
-		ContextCall: contextCall,
+		//ContextCall: contextCall,
 	})
 	if err != nil {
 		return nil, err

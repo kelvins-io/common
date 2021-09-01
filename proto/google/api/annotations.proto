@@ -16,14 +16,36 @@ syntax = "proto3";
 
 package google.api;
 
-import "gitee.com/kelvins-io/common/proto/google/api/http.proto";
 import "google/protobuf/descriptor.proto";
 
 option java_multiple_files = true;
 option java_outer_classname = "AnnotationsProto";
 option java_package = "com.google.api";
+option go_package = "google.golang.org/grpc";
 
 extend google.protobuf.MethodOptions {
   // See `HttpRule`.
   HttpRule http = 72295728;
+}
+
+message Http {
+  repeated HttpRule rules = 1;
+}
+
+message HttpRule {
+  string selector = 1;
+  message CustomHttpPattern {
+    string kind = 1;
+    string path = 2;
+  }
+  oneof pattern {
+    string get = 2;
+    string put = 3;
+    string post = 4;
+    string delete = 5;
+    string patch = 6;
+    CustomHttpPattern custom = 8;
+  }
+  string body = 7;
+  repeated HttpRule additional_bindings = 11;
 }
