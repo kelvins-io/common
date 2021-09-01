@@ -135,35 +135,35 @@ func (l *LoggerContext) WithCaller(skip int) LoggerContextIface {
 }
 
 func (l *LoggerContext) Debug(ctx context.Context, args ...interface{}) {
-	l.WithContext(ctx).(*LoggerContext).log(LEVEL_DEBUG, fmt.Sprint(args))
+	l.WithContext(ctx).(*LoggerContext).log(LEVEL_DEBUG, fmt.Sprint(args...))
 }
 
 func (l *LoggerContext) Debugf(ctx context.Context, format string, args ...interface{}) {
-	l.WithContext(ctx).(*LoggerContext).log(LEVEL_DEBUG, fmt.Sprintf(format, args))
+	l.WithContext(ctx).(*LoggerContext).log(LEVEL_DEBUG, fmt.Sprintf(format, args...))
 }
 
 func (l *LoggerContext) Info(ctx context.Context, args ...interface{}) {
-	l.WithContext(ctx).(*LoggerContext).log(LEVEL_INFO, fmt.Sprint(args))
+	l.WithContext(ctx).(*LoggerContext).log(LEVEL_INFO, fmt.Sprint(args...))
 }
 
 func (l *LoggerContext) Infof(ctx context.Context, format string, args ...interface{}) {
-	l.WithContext(ctx).(*LoggerContext).log(LEVEL_INFO, fmt.Sprintf(format, args))
+	l.WithContext(ctx).(*LoggerContext).log(LEVEL_INFO, fmt.Sprintf(format, args...))
 }
 
 func (l *LoggerContext) Warn(ctx context.Context, args ...interface{}) {
-	l.WithContext(ctx).(*LoggerContext).log(LEVEL_WARN, fmt.Sprint(args))
+	l.WithContext(ctx).(*LoggerContext).log(LEVEL_WARN, fmt.Sprint(args...))
 }
 
 func (l *LoggerContext) Warnf(ctx context.Context, format string, args ...interface{}) {
-	l.WithContext(ctx).(*LoggerContext).log(LEVEL_WARN, fmt.Sprintf(format, args))
+	l.WithContext(ctx).(*LoggerContext).log(LEVEL_WARN, fmt.Sprintf(format, args...))
 }
 
 func (l *LoggerContext) Error(ctx context.Context, args ...interface{}) {
-	l.WithContext(ctx).(*LoggerContext).log(LEVEL_ERROR, fmt.Sprint(args))
+	l.WithContext(ctx).(*LoggerContext).log(LEVEL_ERROR, fmt.Sprint(args...))
 }
 
 func (l *LoggerContext) Errorf(ctx context.Context, format string, args ...interface{}) {
-	l.WithContext(ctx).(*LoggerContext).log(LEVEL_ERROR, fmt.Sprintf(format, args))
+	l.WithContext(ctx).(*LoggerContext).log(LEVEL_ERROR, fmt.Sprintf(format, args...))
 }
 
 func (l *LoggerContext) GetDebugLog() *zerolog.Event {
